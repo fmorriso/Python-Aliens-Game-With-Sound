@@ -1,6 +1,6 @@
 import pygame as pg
 
-from settings import Settings
+from gui_settings import GuiSettings
 
 
 class Score(pg.sprite.Sprite):
@@ -8,7 +8,7 @@ class Score(pg.sprite.Sprite):
 
     def __init__(self, *groups):
         pg.sprite.Sprite.__init__(self, *groups)
-        self.settings = Settings()
+        self.settings = GuiSettings()
         self.font = pg.font.Font(None, self.settings.score_font_size)
         self.font.set_italic(1)
         self.color = "white"
@@ -19,7 +19,7 @@ class Score(pg.sprite.Sprite):
     def update(self):
         """We only update the score in update() when it has changed."""
 
-        if Settings.SCORE != self.lastscore:
-            self.lastscore = Settings.SCORE
-            msg = f"Score: {Settings.SCORE}"
+        if GuiSettings.SCORE != self.lastscore:
+            self.lastscore = GuiSettings.SCORE
+            msg = f"Score: {GuiSettings.SCORE}"
             self.image = self.font.render(msg, 0, self.color)

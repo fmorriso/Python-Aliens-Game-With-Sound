@@ -2,7 +2,7 @@ from typing import List
 
 import pygame as pg
 
-from settings import Settings
+from gui_settings import GuiSettings
 
 
 class Player(pg.sprite.Sprite):
@@ -15,8 +15,8 @@ class Player(pg.sprite.Sprite):
 
     def __init__(self, *groups):
 
-        self.settings = Settings()
-        self.SCREENRECT = self.settings.SCREENRECT
+        self.settings = GuiSettings()
+        self.SCREENRECT = self.settings.SCREEN_RECTANGLE
 
         pg.sprite.Sprite.__init__(self, *groups)
         self.image = self.images[0]

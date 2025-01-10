@@ -38,7 +38,7 @@ from bomb import Bomb
 from alien import Alien
 from player import Player
 # keep common things needed by the classes in a separate Settings class
-from settings import Settings
+from gui_settings import GuiSettings
 
 # see if we can load more than standard BMP
 if not pg.image.get_extended():
@@ -93,9 +93,9 @@ def main(winstyle=0):
     fullscreen = False
     # Set the display mode
     winstyle = 0  # |FULLSCREEN
-    settings = Settings()
-    bestdepth = pg.display.mode_ok(settings.SCREENRECT.size, winstyle, 32)
-    screen = pg.display.set_mode(settings.SCREENRECT.size, winstyle, bestdepth)
+    settings = GuiSettings()
+    bestdepth = pg.display.mode_ok(settings.SCREEN_RECTANGLE.size, winstyle, 32)
+    screen = pg.display.set_mode(settings.SCREEN_RECTANGLE.size, winstyle, bestdepth)
 
     # Load images, assign to sprite classes
     # (do this before the classes are used, after screen setup)
@@ -116,7 +116,7 @@ def main(winstyle=0):
     # create the background, tile the bgd image
     # TODO: figure out how to put this somewhere other than the middle of the screen
     bgdtile = load_image("background.gif")
-    background = pg.Surface(settings.SCREENRECT.size)
+    background = pg.Surface(settings.SCREEN_RECTANGLE.size)
     # print(f'SCREENRECT.size: {SCREENRECT.size}')
     # for x in range(0, SCREENRECT.width, bgdtile.get_width()):
     #     background.blit(bgdtile, (x, 0))
@@ -139,7 +139,7 @@ def main(winstyle=0):
     lastalien = pg.sprite.GroupSingle()
 
     # Create Some Starting Values
-    alienreload = Settings.ALIEN_RELOAD
+    alienreload = GuiSettings.ALIEN_RELOAD
     clock = pg.time.Clock()
 
     # initialize our starting sprites
@@ -164,14 +164,14 @@ def main(winstyle=0):
                         print("Changing to FULLSCREEN")
                         screen_backup = screen.copy()
                         screen = pg.display.set_mode(
-                            settings.SCREENRECT.size, winstyle | pg.FULLSCREEN, bestdepth
+                            settings.SCREEN_RECTANGLE.size, winstyle | pg.FULLSCREEN, bestdepth
                         )
                         screen.blit(screen_backup, (0, 0))
                     else:
                         print("Changing to windowed mode")
                         screen_backup = screen.copy()
                         screen = pg.display.set_mode(
-                            settings.SCREENRECT.size, winstyle, bestdepth
+                            settings.SCREEN_RECTANGLE.size, winstyle, bestdepth
                         )
                         screen.blit(screen_backup, (0, 0))
                     pg.display.flip()
@@ -189,7 +189,7 @@ def main(winstyle=0):
         direction = keystate[pg.K_RIGHT] - keystate[pg.K_LEFT]
         player.move(direction)
         firing = keystate[pg.K_SPACE]
-        if not player.reloading and firing and len(shots) < Settings.MAX_SHOTS:
+        if not player.reloading and firing and len(shots) < GuiSettings.MAX_SHOTS:
             Shot(player.gunpos(), shots, all)
             if pg.mixer and shoot_sound is not None:
                 shoot_sound.play()
@@ -198,12 +198,12 @@ def main(winstyle=0):
         # Create new alien
         if alienreload:
             alienreload = alienreload - 1
-        elif not int(random.random() * Settings.ALIEN_ODDS):
+        elif not int(random.random() * GuiSettings.ALIEN_ODDS):
             Alien(aliens, all, lastalien)
-            alienreload = Settings.ALIEN_RELOAD
+            alienreload = GuiSettings.ALIEN_RELOAD
 
         # Drop bombs
-        if lastalien and not int(random.random() * Settings.BOMB_ODDS):
+        if lastalien and not int(random.random() * GuiSettings.BOMB_ODDS):
             Bomb(lastalien.sprite, all, bombs, all)
 
         # Detect collisions between aliens and players.
@@ -212,7 +212,7 @@ def main(winstyle=0):
                 boom_sound.play()
             Explosion(alien, all)
             Explosion(player, all)
-            Settings.SCORE = Settings.SCORE + 1
+            GuiSettings.SCORE = GuiSettings.SCORE + 1
             player.kill()
 
         # See if shots hit the aliens.
@@ -220,7 +220,7 @@ def main(winstyle=0):
             if pg.mixer and boom_sound is not None:
                 boom_sound.play()
             Explosion(alien, all)
-            Settings.SCORE = Settings.SCORE + 1
+            GuiSettings.SCORE = GuiSettings.SCORE + 1
 
         # See if alien bombs hit the player.
         for bomb in pg.sprite.spritecollide(player, bombs, 1):

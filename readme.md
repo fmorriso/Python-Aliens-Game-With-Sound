@@ -26,4 +26,5 @@ This is the Aliens example that comes with PyGame with a few enhancements
 | 2024-02-13 | Moved game constants (MAX_SHOTS, ALIEN_BOMBS, etc.) to Settings class              |
 | 2024-07-30 | refactor Settings class to use private instance variables and public properties    |
 | 2024-10-18 | verify everything works with python 3.13.0 and other                               |
+| 2025-01-10 | Rename Settings to GuiSettings                                                     |
 

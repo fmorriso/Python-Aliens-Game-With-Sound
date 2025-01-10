@@ -3,7 +3,7 @@ from typing import List
 import pygame as pg
 
 from explosion import Explosion
-from settings import Settings
+from gui_settings import GuiSettings
 
 
 class Bomb(pg.sprite.Sprite):
@@ -13,8 +13,8 @@ class Bomb(pg.sprite.Sprite):
     images: List[pg.Surface] = []
 
     def __init__(self, alien, explosion_group, *groups):
-        self.settings = Settings()
-        self.SCREENRECT = self.settings.SCREENRECT
+        self.settings = GuiSettings()
+        self.SCREENRECT = self.settings.SCREEN_RECTANGLE
 
         pg.sprite.Sprite.__init__(self, *groups)
         self.image = self.images[0]

@@ -5,7 +5,7 @@ import pygame as pg
 from pygame import Rect
 
 
-class Settings:
+class GuiSettings:
     SCORE: ClassVar[int] = 0
     # game constants:
     MAX_SHOTS: ClassVar[int] = 2  # most player bullets onscreen
@@ -65,7 +65,7 @@ class Settings:
         self.__scaled_width: int = self.scaled_height if square else int(
             (self.device_width * self.__screen_pct // multiple_of) * multiple_of)
 
-        if Settings.ONE_TIME_COUNT == 0:
+        if GuiSettings.ONE_TIME_COUNT == 0:
             print(f'device width: {self.device_width}, height: {self.device_height}')
             print(f'scaled width: {self.scaled_width}, height: {self.scaled_height}')
 
@@ -75,6 +75,6 @@ class Settings:
         self.near_bottom = self.scaled_height * 0.90
         self.score_board_y = self.scaled_height * 0.95
         self.score_font_size = int(self.device_height * 0.03)
-        self.SCREENRECT = pg.Rect(0, 0, self.screen_width, self.screen_height)
+        self.SCREEN_RECTANGLE = pg.Rect(0, 0, self.screen_width, self.screen_height)
 
-        Settings.ONE_TIME_COUNT += 1
+        GuiSettings.ONE_TIME_COUNT += 1
