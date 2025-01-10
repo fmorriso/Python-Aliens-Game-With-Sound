@@ -8,11 +8,11 @@ This is the Aliens example that comes with PyGame with a few enhancements
 
 | Tool      |  Version |
 |:----------|---------:|
-| Python    |   3.13.0 |
+| Python    |   3.13.1 |
 | PyAutoGUI |   0.9.54 |
 | PyGame    |    2.6.1 |
-| VSCode    |   1.94.2 |
-| PyCharm   | 2024.2.3 |
+| VSCode    |   1.96.2 |
+| PyCharm   | 2024.3.1 |
 ## References
 * [PyGame Aliens example on GitHub](https://github.com/pygame/pygame/tree/main/examples)
 * [PyGame: A Primer on Game Programming in Python](https://realpython.com/pygame-a-primer/)
