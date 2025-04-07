@@ -9,10 +9,10 @@ This is the Aliens example that comes with PyGame with a few enhancements
 
 | Tool      |  Version |
 |:----------|---------:|
-| Python    |   3.13.2 |
+| Python    |   3.13.3 |
 | PyAutoGUI |   0.9.54 |
 | PyGame    |    2.6.1 |
-| VSCode    |   1.96.2 |
+| VSCode    |   1.99.0 |
 | PyCharm   | 2024.3.5 |
 
 ## References
