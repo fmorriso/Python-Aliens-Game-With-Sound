@@ -50,7 +50,7 @@ class GuiSettings:
     def screen_rectangle(self) -> Rect:
         return self.__screen_rectangle
 
-    def __init__(self, pct: float = 0.75, square: bool = False, multiple_of: int = 100):
+    def __init__(self, pct: float = 0.9, square: bool = False, multiple_of: int = 100):
         """Initialize the game's settings."""
         # Screen settings
 

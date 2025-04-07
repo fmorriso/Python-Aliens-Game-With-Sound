@@ -1,5 +1,6 @@
 # PyGame Aliens Example (Enhanced)
 This is the Aliens example that comes with PyGame with a few enhancements
+
 ## Enhancements
 * Scaled game size to a percentage of available device screen size instead of using hard-coded 640 x 480.
 * Split Alien, Bomb, Explosion, Player, Score and Shot classes into individual files.
@@ -8,14 +9,17 @@ This is the Aliens example that comes with PyGame with a few enhancements
 
 | Tool      |  Version |
 |:----------|---------:|
-| Python    |   3.13.1 |
+| Python    |   3.13.2 |
 | PyAutoGUI |   0.9.54 |
 | PyGame    |    2.6.1 |
 | VSCode    |   1.96.2 |
-| PyCharm   | 2024.3.1 |
+| PyCharm   | 2024.3.5 |
+
 ## References
+
 * [PyGame Aliens example on GitHub](https://github.com/pygame/pygame/tree/main/examples)
 * [PyGame: A Primer on Game Programming in Python](https://realpython.com/pygame-a-primer/)
+
 ## Change Log
 
 | Date       | Description                                                                        |
