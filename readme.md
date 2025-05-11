@@ -9,11 +9,11 @@ This is the Aliens example that comes with PyGame with a few enhancements
 
 | Tool      |  Version |
 |:----------|---------:|
-| Python    |   3.13.2 |
+| Python    |   3.13.3 |
 | PyAutoGUI |   0.9.54 |
 | PyGame    |    2.6.1 |
-| VSCode    |   1.99.0 |
-| PyCharm   | 2024.3.5 |
+| VSCode    |  1.100.0 |
+| PyCharm   | 2025.1.1 |
 
 ## References
 
@@ -31,4 +31,5 @@ This is the Aliens example that comes with PyGame with a few enhancements
 | 2024-07-30 | refactor Settings class to use private instance variables and public properties    |
 | 2024-10-18 | verify everything works with python 3.13.0 and other                               |
 | 2025-01-10 | Rename Settings to GuiSettings                                                     |
+| 2025-05-11 | add requirements.txt                                                               |
 

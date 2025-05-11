@@ -26,19 +26,21 @@ Controls
 
 import os
 import random
+import sys
+from importlib.metadata import version
 
 # import basic pygame modules
 import pygame as pg
 
-# import the individual classes needed for the game
-from score import Score
-from explosion import Explosion
-from shot import Shot
-from bomb import Bomb
 from alien import Alien
-from player import Player
+from bomb import Bomb
+from explosion import Explosion
 # keep common things needed by the classes in a separate Settings class
 from gui_settings import GuiSettings
+from player import Player
+# import the individual classes needed for the game
+from score import Score
+from shot import Shot
 
 # see if we can load more than standard BMP
 if not pg.image.get_extended():
@@ -81,7 +83,7 @@ def load_sound(file):
 # since it is passed extra information about the keyboard.
 
 
-def main(winstyle=0):
+def main(winstyle = 0):
     # Initialize pygame
     if pg.get_sdl_version()[0] == 2:
         pg.mixer.pre_init(44100, 32, 2, 1024)
@@ -242,7 +244,24 @@ def main(winstyle=0):
     pg.time.wait(1000)
 
 
+def get_package_version(package_name: str) -> str:
+    return version(package_name)
+
+
+def get_python_version() -> str:
+    return f'{sys.version_info.major}.{sys.version_info.minor}.{sys.version_info.micro}'
+
+
 # call the "main" function if running this script
 if __name__ == "__main__":
+    msg = f'Python version {get_python_version()}'
+    print(msg)
+
+    msg = f'PyAutoGUI version {get_package_version("pyautogui")}'
+    print(msg)
+
+    msg = f'PyGame version {get_package_version("pygame")}'
+    print(msg)
+
     main()
     pg.quit()
